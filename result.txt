@@ -1,0 +1,208 @@
+Output for Q1:
+
+Computing P(AS | AB and AH)
+
+Define factors f(AB AS) f(AS) f(AH AS M NH) f(M) f(NA) f(M MH NA)
+
+Restrict f( AS AB ) to AB = True to produce f( AS )
+AS, Prob, 
+True, 0.8, 
+False, 0.2, 
+
+
+Restrict f( AH AS M NH ) to AH = True to produce f( AS M NH )
+AS, M, NH, Prob, 
+True, True, True, 0.95, 
+True, True, False, 0.85, 
+True, False, True, 0.7, 
+True, False, False, 0.55, 
+False, True, True, 0.65, 
+False, True, False, 0.3, 
+False, False, True, 0.15, 
+False, False, False, 0.0, 
+
+
+Multiply f( M ) f( AS M NH ) to produce f( M AS NH )
+M, AS, NH, Prob, 
+True, True, True, 0.033915, 
+True, True, False, 0.030345, 
+True, False, True, 0.023205, 
+True, False, False, 0.01071, 
+False, True, True, 0.67501, 
+False, True, False, 0.530365, 
+False, False, True, 0.144645, 
+False, False, False, 0.0, 
+
+
+Multiply f( M AS NH ) f( NH M NA ) to produce f( M AS NH NA )
+M, AS, NH, NA, Prob, 
+True, True, True, True, 0.0305235, 
+True, True, True, False, 0.0101745, 
+True, False, True, True, 0.0208845, 
+True, False, True, False, 0.0069615, 
+True, True, False, True, 0.0030345, 
+True, True, False, False, 0.0212415, 
+True, False, False, True, 0.001071, 
+True, False, False, False, 0.007497, 
+False, True, True, True, 0.405006, 
+False, True, True, False, 0.0, 
+False, False, True, True, 0.086787, 
+False, False, True, False, 0.0, 
+False, True, False, True, 0.212146, 
+False, True, False, False, 0.530365, 
+False, False, False, True, 0.0, 
+False, False, False, False, 0.0, 
+
+
+Sum out M from f( M AS NH NA ) to produce f( AS NH NA )
+AS, NH, NA, Prob, 
+True, True, True, 0.4355295, 
+True, True, False, 0.0101745, 
+False, True, True, 0.1076715, 
+False, True, False, 0.0069615, 
+True, False, True, 0.2151805, 
+True, False, False, 0.5516065, 
+False, False, True, 0.001071, 
+False, False, False, 0.007497, 
+
+
+Multiply f( NA ) f( AS NH NA ) to produce f( NA AS NH )
+NA, AS, NH, Prob, 
+True, True, True, 0.1742118, 
+True, False, True, 0.0430686, 
+True, True, False, 0.0860722, 
+True, False, False, 0.0004284, 
+False, True, True, 0.0061047, 
+False, False, True, 0.0041769, 
+False, True, False, 0.3309639, 
+False, False, False, 0.0044982, 
+
+
+Sum out NA from f( NA AS NH ) to produce f( AS NH )
+AS, NH, Prob, 
+True, True, 0.1803165, 
+False, True, 0.0472455, 
+True, False, 0.4170361, 
+False, False, 0.0049266, 
+
+
+Sum out NH from f( AS NH ) to produce f( AS )
+AS, Prob, 
+True, 0.5973526, 
+False, 0.0521721, 
+
+
+Multiply f( AS ) f( AS ) to produce f( AS )
+AS, Prob, 
+True, 0.47788208, 
+False, 0.01043442, 
+
+
+Multiply f( AS ) f( AS ) to produce f( AS )
+AS, Prob, 
+True, 0.023894104, 
+False, 0.009912699, 
+
+
+Normalize f( AS ) to produce f( AS )
+AS, Prob, 
+True, 0.706783897904, 
+False, 0.293216102096, 
+
+
+P(AS | AB and AH) is 0.7067838979036261
+
+
+
+Output for Q2:
+
+Computing P(AS | AB and AH and M and not NA)
+
+Define factors f(AB AS) f(AS) f(AH AS M NH) f(M) f(NA) f(M MH NA)
+
+Restrict f( AS AB ) to AB = True to produce f( AS )
+AS, Prob, 
+True, 0.8, 
+False, 0.2, 
+
+
+Restrict f( AH AS M NH ) to AH = True to produce f( AS M NH )
+AS, M, NH, Prob, 
+True, True, True, 0.95, 
+True, True, False, 0.85, 
+True, False, True, 0.7, 
+True, False, False, 0.55, 
+False, True, True, 0.65, 
+False, True, False, 0.3, 
+False, False, True, 0.15, 
+False, False, False, 0.0, 
+
+
+Multiply f( AS M NH ) f( NH M NA ) to produce f( AS M NH NA )
+AS, M, NH, NA, Prob, 
+True, True, True, True, 0.855, 
+True, True, True, False, 0.285, 
+False, True, True, True, 0.585, 
+False, True, True, False, 0.195, 
+True, True, False, True, 0.085, 
+True, True, False, False, 0.595, 
+False, True, False, True, 0.03, 
+False, True, False, False, 0.21, 
+True, False, True, True, 0.42, 
+True, False, True, False, 0.0, 
+False, False, True, True, 0.09, 
+False, False, True, False, 0.0, 
+True, False, False, True, 0.22, 
+True, False, False, False, 0.55, 
+False, False, False, True, 0.0, 
+False, False, False, False, 0.0, 
+
+
+Sum out NH from f( AS M NH NA ) to produce f( AS M NA )
+AS, M, NA, Prob, 
+True, True, True, 0.94, 
+True, True, False, 0.88, 
+False, True, True, 0.615, 
+False, True, False, 0.405, 
+True, False, True, 0.64, 
+True, False, False, 0.55, 
+False, False, True, 0.09, 
+False, False, False, 0.0, 
+
+
+Restrict f( AS M NA ) to M = True to produce f( AS NA )
+AS, NA, Prob, 
+True, True, 0.94, 
+True, False, 0.88, 
+False, True, 0.615, 
+False, False, 0.405, 
+
+
+Restrict f( AS NA ) to NA = False to produce f( AS )
+AS, Prob, 
+True, 0.88, 
+False, 0.405, 
+
+
+Multiply f( AS ) f( AS ) to produce f( AS )
+AS, Prob, 
+True, 0.704, 
+False, 0.081, 
+
+
+Multiply f( AS ) f( AS ) to produce f( AS )
+AS, Prob, 
+True, 0.0352, 
+False, 0.07695, 
+
+
+Normalize f( AS ) to produce f( AS )
+AS, Prob, 
+True, 0.313865358894, 
+False, 0.686134641106, 
+
+
+P(AS | AB and AH and M and not NA) is 0.31386535889433786
+
+
+
